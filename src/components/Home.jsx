@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import UserContext from "../context/UserContext.js";
-import data from "../models/services/DataService.js";
+import data from "../modeles/services/Dataservice.js";
 import Post from "./post.jsx";
 
 export default function Home() {
@@ -13,9 +13,14 @@ export default function Home() {
       </header>
       <main>
         <h2>👋 Bienvenue, {user.pseudo}</h2>
-        {data.map((e) => (
+
+        {/* {data.map((e) => (
           <Post post={e} />
-        ))}
+        ))} */}
+
+        {data.map((post) => {
+          return <Post post={post} key={post.id} />;
+        })}
       </main>
     </>
   );
